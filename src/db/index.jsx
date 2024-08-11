@@ -47,7 +47,7 @@ export const newEnumUser = {
         fullTime: 0, // Loại hợp đồng toàn thời gian
         partTime: 1  // Loại hợp đồng bán thời gian
     },
-    contractTypeL: {
+    contractTypeLf: {
         intern: 0, // Loại hợp đồng thực tập
         Trial: 1,  // Loại hợp đồng thử việc
         Official: 2 // Loại hợp đồng chính thức

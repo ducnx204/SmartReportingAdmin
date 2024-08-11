@@ -1,19 +1,25 @@
-import { useEffect, useState, } from 'react'
-import './App.css'
-import { db } from './db'
-import ButtonCustom from './compoments/Button'
-import TableCustom from './compoments/Table'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import HomePage from './page/Home';
+import Sidebar from './compoments/Sidebar';
 
 function App() {
-  const [user, setUser] = useState(db.users)
 
+  const token = 'hardToken'
   return (
-    <div className='w-[100wh] h-[100vh] '>
-
-      <ButtonCustom />
-      <TableCustom />
-      {/* {user.map((item, index) => <div key={index} className='text-black'>{(index + 1) + "-" + item.fullName}</div>)} */}
-
+    <div className='w-full h-full'>
+      {!token ? <div>
+        LoginPage
+      </div>
+    : <BrowserRouter>
+      <Sidebar>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<HomePage />} />
+        </Routes>
+      </Sidebar>
+    </BrowserRouter>  
+    }
     </div>
   )
 }
