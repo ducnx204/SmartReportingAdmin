@@ -5,7 +5,7 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function TableCustom() {
     return (
-        <div className='w-[80%] ml-auto mr-auto my-5'>
+        <div className='w-[100%] ml-auto mr-auto my-5'>
             {/* Phần bảng */}
             <div className="overflow-x-auto">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
