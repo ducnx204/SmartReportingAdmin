@@ -1,3 +1,5 @@
+import { faChevronDown, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect, useRef } from 'react';
 
 function ButtonCustom() {
@@ -51,21 +53,34 @@ function ButtonCustom() {
     return (
         <div className='w-full ml-5 mr-9 my-5'>
             <div className='items-center space-x-4'>
-                <h1 className='font-bold text-3xl'>List Of Resource</h1>
-                <div className='pl-72 flex relative'>
-                    <input
-                        className='w-1/5 h-10 pl-3 border-2 border-black rounded-md'
-                        type="text"
-                        placeholder='Search ...'
-                    />
+                {/* <h1 className='font-bold text-3xl'>List Of Resource</h1> */}
+                <div className='flex relative'>
+
+                    <div className='w-[30%] flex justify-center '>
+                        <FontAwesomeIcon
+                            icon={faSearch}
+                            className="text-gray-400 text-xl absolute left-2 top-3"
+                        />
+                        <input
+                            className='w-full h-10 px-[40px] border-2 border-gray-400 rounded-md'
+                            type="text"
+                            placeholder='Search ...'
+                        />
+                    </div>
                     <div
                         ref={dropdownRef} // Gán ref cho dropdown để kiểm tra click ngoài
-                        className='w-[130px] h-10 ml-8 border-2 border-black rounded-lg flex justify-center items-center bg-stone-300 cursor-pointer hover:bg-stone-400'
+                        className='w-[160px] h-10 ml-8 border-2 border-gray-400 rounded-lg flex justify-center items-center cursor-pointer hover:bg-slate-100'
                         onClick={handleDropdownToggle} // Toggle dropdown khi click
                     >
-                        {selectedOption}
+                        <div className='flex justify-around w-full'>
+                            {selectedOption}
+                            <FontAwesomeIcon
+                                icon={faChevronDown}
+                                className="cursor-pointer mt-[3px] text-gray-500 text-xl transform transition-transform duration-200 hover:scale-110"
+                            />
+                        </div>
                         {isDropdownOpen && (
-                            <div className='absolute top-full mt-2 w-[130px] border-2 border-black bg-white rounded-lg shadow-lg'>
+                            <div className='absolute top-full mt-2 w-[160px] border-2 border-gray-400 bg-white rounded-lg shadow-lg'>
                                 {options.map(option => (
                                     <div
                                         key={option}
